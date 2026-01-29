@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6fb;
+  color: #222;
+}
+
+
+/* Header */
+
+header {
+  background: #4f46e5;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+/* Main */
+
+main {
+  padding: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+/* Login Button */
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #4338ca;
+}
+
+
+/* Cards */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.course {
+  font-size: 14px;
+  color: #555;
+}
+
+
+.title {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+
+.due {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* Desktop Upgrade */
+
+@media (min-width: 768px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
