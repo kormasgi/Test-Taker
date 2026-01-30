@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Quiz</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>Create Quiz</header>
+
+<main>
+
+  <h3 id="info"></h3>
+
+  <div id="questions"></div>
+
+  <button onclick="addRow()" class="main-btn">
+    ➕ Add Question
+  </button>
+
+  <button onclick="saveQuiz()" class="main-btn save">
+    💾 Save Quiz
+  </button>
+
+</main>
+
+
+<script>
+
+const id = new URLSearchParams(location.search).get("id");
+
+let tests = JSON.parse(localStorage.getItem("tests") || "[]");
+let test = tests.find(t => t.id == id);
+
+document.getElementById("info").textContent =
+  `${test.subject} - ${test.title}`;
+
+
+// Add row
+function addRow(q="", a="") {
+
+  const div = document.createElement("div");
+  div.className = "qa-row";
+
+  div.innerHTML = `
+
+    <input
+      type="text"
+      class="question"
+      placeholder="Question"
+      value="${q}"
+    >
+
+    <input
+      type="text"
+      class="answer"
+      placeholder="Answer"
+      value="${a}"
+    >
+  `;
+
+  document.getElementById("questions").appendChild(div);
+}
+
+
+// Save
+function saveQuiz() {
+
+  const rows = document.querySelectorAll(".qa-row");
+
+  let data = [];
+
+  rows.forEach(row => {
+
+    const q = row.querySelector(".question").value.trim();
+    const a = row.querySelector(".answer").value.trim();
+
+    if (q && a) {
+      data.push({ q, a, score: 0});
+    }
+
+  });
+
+  if (!data.length) {
+    alert("Add at least one question.");
+    return;
+  }
+
+
+  let quizzes =
+    JSON.parse(localStorage.getItem("quizzes") || "{}");
+
+  quizzes[id] = data;
+
+  localStorage.setItem("quizzes", JSON.stringify(quizzes));
+
+
+  test.hasQuiz = true;
+  localStorage.setItem("tests", JSON.stringify(tests));
+
+
+  location.href = `quiz.html?id=${id}`;
+}
+
+
+// Start with one row
+addRow();
+
+</script>
+
+</body>
+</html>

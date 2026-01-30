@@ -6,46 +6,57 @@
 body {
   margin: 0;
   background: #f4f6fb;
-  color: #222;
+  padding: 10px;
 }
-
-
-/* Header */
 
 header {
   background: #4f46e5;
   color: white;
-  padding: 15px;
   text-align: center;
+  padding: 15px;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 
-/* Main */
+/* Form */
 
-main {
+.form {
+  background: white;
   padding: 15px;
-  max-width: 600px;
-  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
 }
 
+.form h3 {
+  margin-top: 0;
+}
 
-/* Login Button */
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
 
-.login-btn {
+.form button {
   width: 100%;
   padding: 12px;
-  border: none;
-  border-radius: 10px;
   background: #4f46e5;
   color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-top: 8px;
   cursor: pointer;
 }
 
-.login-btn:hover {
+.form button:hover {
   background: #4338ca;
 }
 
@@ -55,23 +66,20 @@ main {
 .card-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-
 
 .card {
   background: white;
-  padding: 15px;
+  padding: 12px;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 
 .course {
   font-size: 14px;
   color: #555;
 }
-
 
 .title {
   font-size: 17px;
@@ -79,18 +87,393 @@ main {
   margin: 5px 0;
 }
 
-
 .due {
   font-size: 14px;
-  color: #666;
 }
 
-
-/* Desktop Upgrade */
+.due-soon { color: #e11d48; }
+.due-mid { color: #f59e0b; }
+.due-later { color: #16a34a; }
 
 @media (min-width: 768px) {
   .card-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.quiz-status {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.delete-btn {
+  margin-top: 8px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Quiz Builder */
+
+.qa-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.qa-row input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.question {
+  background: #eef2ff;
+}
+
+.answer {
+  background: #ecfeff;
+}
+
+
+/* Buttons */
+
+.main-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.main-btn.save {
+  background: #16a34a;
+}
+
+.main-btn:hover {
+  opacity: 0.9;
+}
+
+/* Quiz Viewer */
+
+.quiz-card {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+.quiz-card button {
+  margin: 6px 0;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+}
+
+.q {
+  font-weight: bold;
+}
+
+.a {
+  margin-top: 6px;
+  color: #065f46;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Study Modes */
+
+.mode-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mode-box button {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mode-box button:hover {
+  opacity: 0.9;
+}
+
+
+/* Flashcards */
+
+#flashA {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #065f46;
+}
+
+.streak {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+
+.good {
+  background: #16a34a;
+  color: white;
+}
+
+.bad {
+  background: #dc2626;
+  color: white;
+}
+
+#flashBtns button {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin: 4px 1%;
+  cursor: pointer;
+}
+
+/* Test Mode */
+
+#testInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+/* Big Flashcard */
+
+#flashCard {
+  background: white;
+  min-height: 180px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  margin: 20px 0;
+
+  transition: transform 0.15s ease;
+}
+
+#flashCard:active {
+  transform: scale(0.97);
+}
+
+/* Flash Buttons */
+
+.flash-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.flash-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.good {
+  background: #16a34a;
+  color: white;
+}
+
+.bad {
+  background: #dc2626;
+  color: white;
+}
+
+
+/* Test Mode */
+
+.test-question {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.test-q {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.test-question input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.right {
+  border: 2px solid #16a34a;
+  background: #ecfdf5;
+}
+
+.wrong {
+  border: 2px solid #dc2626;
+  background: #fef2f2;
+}
+
+
+.submit-test {
+  width: 100%;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.submit-test:hover {
+  opacity: 0.9;
+}
+
+/* 3D Flashcard Flip */
+
+.flash-card {
+  width: 100%;
+  min-height: 200px;
+
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+
+.flash-card > div {
+  position: absolute;
+  width: 100%;
+  min-height: 200px;
+
+  backface-visibility: hidden;
+
+  background: white;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flash-card .back {
+  transform: rotateY(180deg);
+}
+
+.flash-card.flipped {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.flash-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+/* End Buttons */
+
+#flashEnd button,
+#testEnd button {
+
+  width: 100%;
+  padding: 12px;
+
+  margin: 6px 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #4f46e5;
+  color: white;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+/* Smart Study */
+
+.smart-box {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+#smartBtn {
+  background: #2563eb;
+  color: white;
+}
+
+#smartBtn:hover {
+  background: #1d4ed8;
+}
+
+#smartAnswer {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #dc2626;
 }
