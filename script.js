@@ -62,7 +62,7 @@ function renderTests() {
 
 
     // Decide link
-    const page = item.hasQuiz ? "quiz.html" : "create.html";
+    const page = item.hasQuiz ? "Testaker-Quiz/quiz.html" : "Testaker-Create/create.html";
 
 
     const card = document.createElement("div");
