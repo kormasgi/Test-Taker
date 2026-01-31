@@ -62,7 +62,7 @@ function renderTests() {
 
 
     // Decide link
-    const page = item.hasQuiz ? "Quiz.html" : "Create.html";
+    const page = item.hasQuiz ? "https://kormasgi.github.io/Testaker-Quiz/Quiz.html" : "https://kormasgi.github.io/Testaker-Create/Create.html";
 
 
     const card = document.createElement("div");
